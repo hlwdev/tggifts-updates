@@ -220,4 +220,6 @@ async def start_parsing(message: types.Message):
 
 @dp.message(Command('send'))
 async def ffff(message: types.Message, bot: Bot):
-    await bot.send_message(chat_id=channel_id, text='aaa')
+    w = await bot.send_message(chat_id=channel_id, text='aaa')
+    msg_id = w.message_id
+    await bot.edit_message_text(chat_id=channel_id, message_id=msg_id, text=f'ID of this message:\n\n{msg_id}\n\nPaste this id in config.py')
